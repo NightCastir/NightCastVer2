@@ -1,0 +1,1316 @@
+/* ==================================================
+
+NightCast Audio Player V2
+
+File:
+users/css/player.css
+
+Professional Fixed Player
+
+Compatible With:
+users/index.html
+
+Features:
+- Compact Spotify Style Player
+- Glass Effect
+- Desktop Layout
+- Theme Support
+
+================================================== */
+
+
+/* ==================================================
+PLAYER CONTAINER
+================================================== */
+
+
+.audio-player{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    z-index:1000;
+
+    background:
+
+    rgba(15,23,42,.88);
+
+    backdrop-filter:
+
+    blur(20px);
+
+    border-top:
+
+    1px solid var(--border);
+
+    box-shadow:
+
+    0 -8px 30px rgba(0,0,0,.35);
+
+    transform:translateY(0);
+
+    transition:.3s ease;
+
+}
+
+
+
+
+
+body.light-theme .audio-player{
+
+    background:
+
+    rgba(255,255,255,.9);
+
+}
+
+
+
+
+
+
+
+/* ==================================================
+PLAYER MAIN
+================================================== */
+
+
+.player-main{
+
+
+    width:min(1280px,94%);
+
+    height:76px;
+
+    margin:auto;
+
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+
+}
+
+
+
+
+
+
+
+/* ==================================================
+COVER
+================================================== */
+
+
+.player-cover{
+
+
+    width:52px;
+
+    height:52px;
+
+
+    flex-shrink:0;
+
+
+    border-radius:12px;
+
+
+    overflow:hidden;
+
+
+    background:var(--bg-soft);
+
+
+    box-shadow:
+
+    0 4px 15px rgba(0,0,0,.25);
+
+}
+
+
+
+
+
+.player-cover img{
+
+
+    width:100%;
+
+
+    height:100%;
+
+
+    object-fit:cover;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==================================================
+INFO
+================================================== */
+
+
+.player-info{
+
+
+    width:220px;
+
+
+    min-width:120px;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+.player-info h3{
+
+
+    margin:0;
+
+
+    font-size:15px;
+
+
+    font-weight:700;
+
+
+    white-space:nowrap;
+
+
+    overflow:hidden;
+
+
+    text-overflow:ellipsis;
+
+
+}
+
+
+
+
+
+.player-info p{
+
+
+    margin-top:4px;
+
+
+    font-size:12px;
+
+
+    color:var(--text-soft);
+
+
+    white-space:nowrap;
+
+
+    overflow:hidden;
+
+
+    text-overflow:ellipsis;
+
+
+}
+
+
+
+
+
+
+
+
+/* ==================================================
+CONTROL BUTTONS
+================================================== */
+
+
+.player-controls{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:8px;
+
+
+}
+
+
+
+.player-btn{
+
+
+    width:38px;
+
+
+    height:38px;
+
+
+    border:none;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+
+    justify-content:center;
+
+
+    align-items:center;
+
+
+    cursor:pointer;
+
+
+    color:var(--text);
+
+
+    background:var(--bg-soft);
+
+
+    transition:.25s ease;
+
+
+}
+
+
+
+
+
+.player-btn:hover{
+
+
+    color:var(--primary);
+
+
+    transform:translateY(-2px);
+
+
+}
+
+
+
+
+
+.player-btn.main{
+
+
+    width:46px;
+
+
+    height:46px;
+
+
+    color:#fff;
+
+
+    background:
+
+
+    linear-gradient(
+
+        135deg,
+
+        var(--primary),
+
+        #008cff
+
+    );
+
+
+    box-shadow:
+
+
+    0 5px 20px rgba(0,180,255,.35);
+
+
+}
+
+
+
+
+
+
+
+/* ==================================================
+PROGRESS
+================================================== */
+
+
+.player-progress-area{
+
+
+    flex:1;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:8px;
+
+
+}
+
+
+
+.player-progress-area span{
+
+
+    font-size:11px;
+
+
+    color:var(--text-soft);
+
+
+    min-width:35px;
+
+
+    text-align:center;
+
+
+}
+
+
+
+
+
+
+
+.progress-container{
+
+
+    height:5px;
+
+
+    flex:1;
+
+
+    cursor:pointer;
+
+
+    background:
+
+
+    var(--bg-soft);
+
+
+    border-radius:20px;
+
+
+    overflow:hidden;
+
+
+}
+
+
+
+.progress-bar{
+
+
+    width:0;
+
+
+    height:100%;
+
+
+    border-radius:20px;
+
+
+    background:
+
+
+    linear-gradient(
+
+        90deg,
+
+        var(--primary),
+
+        var(--gold)
+
+    );
+
+
+    transition:.15s linear;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==================================================
+OPTIONS
+================================================== */
+
+
+.player-options{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:10px;
+
+
+}
+
+
+
+
+
+.player-options button{
+
+
+    border:none;
+
+
+    background:transparent;
+
+
+    color:var(--text);
+
+
+    cursor:pointer;
+
+
+    font-size:15px;
+
+
+}
+
+
+
+
+
+
+
+#speedButton{
+
+
+    padding:5px 10px;
+
+
+    border-radius:10px;
+
+
+    background:var(--bg-soft);
+
+
+    font-size:12px;
+
+
+}
+
+
+
+
+
+#playerVolume{
+
+
+    width:80px;
+
+
+    cursor:pointer;
+
+
+    accent-color:var(--primary);
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==================================================
+QUEUE PANEL
+================================================== */
+
+
+.queue-panel{
+
+
+    position:fixed;
+
+
+    left:20px;
+
+
+    bottom:95px;
+
+
+    width:330px;
+
+
+    max-height:430px;
+
+
+    overflow:auto;
+
+
+    background:var(--bg-card);
+
+
+    border:1px solid var(--border);
+
+
+    border-radius:20px;
+
+
+    box-shadow:var(--shadow);
+
+
+    z-index:1200;
+
+
+}
+
+
+
+
+
+
+.queue-header{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    padding:16px;
+
+
+    border-bottom:1px solid var(--border);
+
+
+}
+
+
+
+
+
+.queue-header button{
+
+
+    width:34px;
+
+
+    height:34px;
+
+
+    border:none;
+
+
+    border-radius:10px;
+
+
+    background:var(--bg-soft);
+
+
+    color:var(--text);
+
+
+}
+
+
+
+
+
+
+
+.queue-list{
+
+
+    padding:12px;
+
+
+}
+
+
+
+
+
+
+
+.queue-item{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    gap:12px;
+
+
+    padding:10px;
+
+
+    border-radius:12px;
+
+
+    cursor:pointer;
+
+
+    transition:.2s;
+
+
+}
+
+
+
+
+
+.queue-item:hover,
+
+
+.queue-item.active{
+
+
+    background:
+
+    rgba(0,212,255,.1);
+
+
+}
+
+
+
+
+
+.queue-item img{
+
+
+    width:42px;
+
+
+    height:42px;
+
+
+    border-radius:10px;
+
+
+    object-fit:cover;
+
+
+}
+
+
+
+
+
+.queue-item span{
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+
+
+
+/* ==================================================
+HIDE STATE
+================================================== */
+
+
+.audio-player:not(.active){
+
+    opacity:.95;
+
+}
+
+
+
+/* ==================================================
+TABLET
+================================================== */
+
+
+@media(max-width:992px){
+
+
+    .player-main{
+
+
+        width:94%;
+
+
+        gap:12px;
+
+
+    }
+
+
+
+
+
+    .player-info{
+
+
+        width:180px;
+
+
+    }
+
+
+
+
+
+    #playerVolume{
+
+
+        width:60px;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==================================================
+MOBILE PLAYER
+================================================== */
+
+
+@media(max-width:768px){
+
+
+
+    body{
+
+
+        padding-bottom:
+
+        140px;
+
+
+    }
+
+
+
+
+
+    .audio-player{
+
+
+        bottom:70px;
+
+
+        border-radius:
+
+        18px 18px 0 0;
+
+
+    }
+
+
+
+
+
+
+
+    .player-main{
+
+
+        height:64px;
+
+
+        width:94%;
+
+
+        gap:10px;
+
+
+    }
+
+
+
+
+
+
+
+    /* COVER */
+
+
+    .player-cover{
+
+
+        width:44px;
+
+
+        height:44px;
+
+
+        border-radius:10px;
+
+
+    }
+
+
+
+
+
+
+
+    /* INFO */
+
+
+    .player-info{
+
+
+        flex:1;
+
+
+        width:auto;
+
+
+        min-width:0;
+
+
+    }
+
+
+
+
+
+    .player-info h3{
+
+
+        font-size:13px;
+
+
+    }
+
+
+
+
+
+    .player-info p{
+
+
+        font-size:11px;
+
+
+    }
+
+
+
+
+
+
+
+
+    /* CONTROLS */
+
+
+    .player-controls{
+
+
+        gap:6px;
+
+
+    }
+
+
+
+
+
+
+
+    .player-btn{
+
+
+        width:34px;
+
+
+        height:34px;
+
+
+    }
+
+
+
+
+
+
+
+    .player-btn.main{
+
+
+        width:42px;
+
+
+        height:42px;
+
+
+    }
+
+
+
+
+
+    .player-btn:first-child,
+    .player-btn:last-child{
+
+
+        display:none;
+
+
+    }
+
+
+
+
+
+
+
+    /* PROGRESS */
+
+
+    .player-progress-area{
+
+
+        position:absolute;
+
+
+        left:10px;
+
+
+        right:10px;
+
+
+        bottom:4px;
+
+
+        height:3px;
+
+
+    }
+
+
+
+
+
+    .player-progress-area span{
+
+
+        display:none;
+
+
+    }
+
+
+
+
+
+
+
+    .progress-container{
+
+
+        height:3px;
+
+
+    }
+
+
+
+
+
+
+
+
+    /* OPTIONS */
+
+
+    .player-options{
+
+
+        display:none;
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+/* ==================================================
+SMALL MOBILE
+================================================== */
+
+
+@media(max-width:480px){
+
+
+
+    .audio-player{
+
+
+        bottom:65px;
+
+
+    }
+
+
+
+
+
+    .player-main{
+
+
+        height:60px;
+
+
+    }
+
+
+
+
+
+
+
+    .player-cover{
+
+
+        width:40px;
+
+
+        height:40px;
+
+
+    }
+
+
+
+
+
+
+
+    .player-btn.main{
+
+
+        width:38px;
+
+
+        height:38px;
+
+
+    }
+
+
+
+
+
+
+
+    .player-info h3{
+
+
+        max-width:130px;
+
+
+    }
+
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==================================================
+VERY SMALL DEVICES
+================================================== */
+
+
+@media(max-width:360px){
+
+
+
+    .player-info{
+
+
+        display:none;
+
+
+    }
+
+
+
+
+
+    .player-main{
+
+
+        justify-content:center;
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==================================================
+PLAYER ANIMATION
+================================================== */
+
+
+@keyframes playerShow{
+
+
+    from{
+
+
+        transform:translateY(100%);
+
+
+    }
+
+
+
+    to{
+
+
+        transform:translateY(0);
+
+
+    }
+
+
+}
+
+
+
+
+
+.audio-player.active{
+
+
+    animation:
+
+    playerShow .35s ease;
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ==================================================
+ACCESSIBILITY
+================================================== */
+
+
+@media(prefers-reduced-motion:reduce){
+
+
+    .audio-player,
+    .player-btn{
+
+
+        transition:none;
+
+
+        animation:none;
+
+
+    }
+
+
+    }
+
+
+
+
+
+
